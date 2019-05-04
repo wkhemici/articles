@@ -1,0 +1,34 @@
+{{!-- Setup the index.handlebars to have the template that Handlebars can render onto.
+
+
+Create a button in index.handlebars that will submit the user input into the database --}}
+
+
+<h1>Articles</h1>
+
+<h2>Click to scrape the latest news from NPR:</h2>
+
+<a href="/scrape"><button type="submit">Show Articles:</button></a>
+<button id="delete">Clear Page</button>
+<ul>
+  {{#each Articles}}
+  <li><h1>{{title}}</h1></li>
+  <li><p>{{summary}}</p></li>
+  <li><p>{{link}}</p></li>
+  {{/each}}
+</ul>
+
+{{!-- <button type="submit">Scrape Articles</button> --}}
+
+{{!-- <form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Comment:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+
+
+  {{!-- here, must take the submit input and display it on handlebars  --}}
+
+</form> --
