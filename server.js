@@ -23,8 +23,10 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+
+
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/articledb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/articledb", { useNewUrlParser: true });
 
 // Display handbars pages 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -99,6 +101,8 @@ app.get("/scrape", function(req, res) {
   });
 });
 
+
+
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
@@ -160,6 +164,9 @@ app.post("/articles/:id", function(req, res) {
 //   db.Article(req.body)
 //   .then(function(dbArticle))
 // })
+
+
+
 
 // Start the server
 app.listen(PORT, function() {
